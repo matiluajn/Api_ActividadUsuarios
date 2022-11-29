@@ -58,6 +58,10 @@ namespace Backend.Models.Manejadores
         {
             var resultado = AdmUsuario.GrabarUsuario(us);
             Recargar();
+
+            if (resultado)
+                GrabarActividad(TiposGenerales.TipoActividad.CREATE,null);
+            
             return resultado;
         }
 
@@ -65,6 +69,10 @@ namespace Backend.Models.Manejadores
         {
             var resultado = AdmUsuario.ModificarUsuario(us);
             Recargar();
+
+            if (resultado)
+                GrabarActividad(TiposGenerales.TipoActividad.UPDATE, us.Id_usuario);
+
             return resultado;
         }
 
@@ -72,7 +80,25 @@ namespace Backend.Models.Manejadores
         {
             var resultado = AdmUsuario.EliminarUsuarioEntityPorId(idUsuario);
             Recargar();
+
+            if (resultado)
+                GrabarActividad(TiposGenerales.TipoActividad.DELETE,idUsuario);
+            
             return resultado;
+        }
+
+        //Metodo para Grabar Actividad De Usuario
+        private static void GrabarActividad(TiposGenerales.TipoActividad tipoActividad, int? idusuario)
+        {
+            var oActividad = new ActividadEntity();
+
+            oActividad.Create_date = DateTime.Now;
+            oActividad.Id_usuario = (int)(idusuario.HasValue?idusuario: ( TraerTodos().Select(x => x.Id_usuario).Last()));
+            oActividad.Actividad = tipoActividad.ToString();
+
+            ManejadorActividad.AgregarActividad(oActividad);
+
+
         }
 
 

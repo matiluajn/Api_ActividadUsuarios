@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ActividadController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\AdmActividad.cs" />
     <Compile Include="DAL\AdmUsuario.cs" />
@@ -103,7 +104,9 @@
     </Compile>
     <Compile Include="Models\Entidades\ActividadEntity.cs" />
     <Compile Include="Models\Entidades\UsuarioEntity.cs" />
+    <Compile Include="Models\Manejadores\ManejadorActividad.cs" />
     <Compile Include="Models\Manejadores\ManejadorUsuarios.cs" />
+    <Compile Include="Models\TiposGenerales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
