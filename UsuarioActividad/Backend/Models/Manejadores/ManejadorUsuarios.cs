@@ -93,7 +93,7 @@ namespace Backend.Models.Manejadores
             var oActividad = new ActividadEntity();
 
             oActividad.Create_date = DateTime.Now;
-            oActividad.Id_usuario = (int)(idusuario.HasValue?idusuario: ( TraerTodos().Select(x => x.Id_usuario).Last()));
+            oActividad.Id_usuario = (int)(idusuario.HasValue ? idusuario: ( TraerTodos().Select(x => x.Id_usuario).Last()));
             oActividad.Actividad = tipoActividad.ToString();
 
             ManejadorActividad.AgregarActividad(oActividad);

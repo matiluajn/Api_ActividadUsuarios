@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+    
+}
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<nav class="navbar navbar-dark bg-dark">
+    <form class="container-fluid justify-content-start">
+        @Html.ActionLink("Usuarios", "Index", "Usuario", null, new { @class = "navbar-brand btn btn-outline-success me-2" })
+        @Html.ActionLink("Actividad", "Index", "Actividad", null, new { @class = "navbar-brand btn btn-outline-success me-2" })
+
+    </form>
+</nav>
+
+<h2>Encode</h2>
+<!-- Button trigger modal -->
+<button onclick="{ abrirModal(0) }" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Nuevo
+</button>
+
+<div class="container-fluid">
+    <div class="row" id="divTabla">
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lblTitulo"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div class="form-group" id="divIdUsuario">
+                    <label>Id Usuario</label>
+                    <input class="form-control" type="text" id="txtidUsuario" readonly />
+
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input class="form-control limpiar" type="text" id="txtNombre" />
+
+                </div>
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input class="form-control limpiar" type="text" id="txtApellido" />
+
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control limpiar" type="email" id="txtEmail" />
+
+                </div>
+                <div class="form-group">
+                    <label>Fecha de nacimiento</label>
+                    <input class="form-control limpiar" type="date" id="txtFechaNacimiento" />
+
+                </div>
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input class="form-control limpiar" type="tel" id="txtTelefono" />
+
+                </div>
+                <div class="form-group">
+                    <label>Pais de recidencia</label>
+                    <select class="form-select limpiar" aria-label="Default select example" id="txtPaisResidencia">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Info</label>
+                    <input class="form-check-input limpiar" type="checkbox" id="txtInfo" />
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button onclick="{guardarCambios()}" type="button" class="btn btn-primary" id="butGuardar">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="~/Scripts/Usuario.js"></script>
